@@ -1,0 +1,55 @@
+{
+  "data": {
+    "user": [
+      {
+        "name": "mick Cullen",
+        "email": "mick@kk.ie",
+        "createdAt": "2014-02-20T15:21:02.930Z",
+        "updatedAt": "2014-02-20T15:21:02.930Z",
+        "id": 1
+      },
+      {
+        "name": "Mick",
+        "title": "Cullen",
+        "email": "mick@gg.ie",
+        "id": 2,
+        "createdAt": "2014-02-20T16:05:36.049Z",
+        "updatedAt": "2014-02-20T16:05:36.049Z"
+      }
+    ]
+  },
+  "schema": {
+    "user": {
+      "name": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "encryptedPassword": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "user": {
+      "id": 6
+    }
+  }
+}

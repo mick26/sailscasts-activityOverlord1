@@ -1,0 +1,64 @@
+<!-- https://github.com/irlnathan/activityoverlord/blob/master/views/user/edit.ejs -->
+
+<form action="/user/update/<%= user.id %>" method="POST" class = "form-signin">
+	<h2>Hey, your editing a user..</h2>
+
+	<input value = "<%= user.name %>" name="name" type="text" class="form-control"/>
+	<input value = "<%= user.title %>" name="title" type="text" class="form-control"/>
+	<input value = "<%= user.email %>" name="email" type="text" class="form-control"/>
+
+	<% if(session.authenticated && session.User.admin) { %>
+	
+		<% if(user.admin) 
+		{ %>
+
+			<!--	<input type="hidden" name="cBoxAdmin" value="true"/>	-->
+			<input type="hidden" name="admin" id="adminHidden" value="true"/> 
+			<label class="checkbox">
+				<input type="checkbox" name="admin" id="cBoxAdmin" value="false"/> Remove Admin 
+			</label>
+
+			<% if(document.getElementById('cBoxAdmin').checked == true )
+			{
+ 				 document.getElementById('adminHidden').disabled = true;
+			}
+			%>
+
+			
+  	 <% }
+	
+		else
+
+		{ %>
+			<!-- when checkbox is left unchecked the hidden value is used -->
+			<input type="hidden" name="admin" id="adminHidden" value="false"/> 
+			<label class="checkbox">
+				<input type="checkbox" name="admin" id="cBoxAdmin" value="true"/> Admin [else]
+			</label>
+
+			<% if(document.getElementById('cBoxAdmin').checked == true)
+			{
+ 				 document.getElementById('adminHidden').disabled = true;
+			}
+			%>
+	
+
+	<%  } %>
+<% } %>
+
+<!--
+*************************************************
+<input id='testName' type='checkbox' value='Yes' name='testName'>
+<input id='testNameHidden'  type='hidden' value='No' name='testName'>
+
+Before submitting the form , disabled the hidden field based on the checked condition
+
+if(document.getElementById("testName").checked){
+  document.getElementById('testNameHidden').disabled = true;
+}
+*************************************************
+-->
+
+	<input type="submit" value="Proceed" class = "btn-lg btn-primary btn-block"/>
+	<input type = "hidden" name="_csrf" value= "<%= _csrf %>" />
+</form>

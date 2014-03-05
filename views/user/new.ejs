@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<form action="/user/create" method="POST" class="form-signin">
+	<h2 class="form-signin-heading">Create an account</h2>
+
+<!--
+	Show errors on page
+	If both flash object and flash error exist
+	then loop through error object injecting each item as a <li>
+	-->
+
+	<% if(flash && flash.err) { %>
+		<ul class="alert alert-success">
+			<% Object.keys(flash.err).forEach(function(error)
+			{ %>
+				<li> <%- JSON.stringify(flash.err[error]) %> </li> 
+		 <% }) %>
+		</ul>
+ <% } %>
+
+
+	<div class="form-group">
+		<input type="text" class="form-control" placeholder="your name" name="name">
+	</div>
+
+	<div class="form-group">
+		<input type="text" class="form-control" placeholder="your title" name="title">
+	</div>	
+
+	<div class="form-group">
+		<input type="email" class="form-control" placeholder="E-mail" name="email">
+	</div>
+
+	<div class="form-group">
+		<input type="password" class="form-control" placeholder="password" name="password">
+	</div>
+
+	<div class="form-group">
+		<input type="password" class="form-control" placeholder="password confirmation" name="confirmation">
+	</div>
+
+	<br />
+
+	<!-- Prevent Cross Site Request Forgery (also enable in csrf.js) 
+	Server knows where requests are coming from -->
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account"/>
+	<input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+
+</form>
+
+

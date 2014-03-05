@@ -1,0 +1,64 @@
+{
+  "data": {
+    "user": [
+      {
+        "name": "cullen mick",
+        "email": "mick@i.ie",
+        "createdAt": "2014-02-19T21:03:55.712Z",
+        "updatedAt": "2014-02-19T21:03:55.712Z",
+        "id": 1
+      },
+      {
+        "name": "cullen mick",
+        "email": "mick@m",
+        "createdAt": "2014-02-19T21:10:38.604Z",
+        "updatedAt": "2014-02-19T21:10:38.604Z",
+        "id": 2
+      },
+      {
+        "name": "cullen mary",
+        "email": "mary@123.ie",
+        "createdAt": "2014-02-19T21:17:00.336Z",
+        "updatedAt": "2014-02-19T21:17:00.336Z",
+        "id": 3
+      }
+    ]
+  },
+  "schema": {
+    "user": {
+      "name": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "encrytedPassword": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "defaultsTo": "AUTO_INCREMENT",
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime",
+        "default": "NOW"
+      },
+      "updatedAt": {
+        "type": "datetime",
+        "default": "NOW"
+      }
+    }
+  },
+  "counters": {
+    "user": {
+      "id": 3
+    }
+  }
+}
